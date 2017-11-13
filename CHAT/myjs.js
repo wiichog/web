@@ -1,7 +1,8 @@
 var wage = document.getElementById("message");
 var chat = document.getElementById("chat");
+var i=0;
 httpGet();
-chat.scrollTop = chat.scrollHeight;
+
 
 wage.addEventListener("keydown", function (e) {
     if (e.keyCode === 13) {//here we captured the enter
@@ -16,18 +17,21 @@ function validate(e) {
 
 function httpGet(){
   $.get("http://52.88.26.79:7000/", function(responseText) {
-    var messages = $.parseJSON( responseText )
-    for(var i=0;i<messages.length;i++){
-      chat.innerHTML += '<div class="messages"> <p style="font-weight: bold;">'+ messages[i].username +':</p> ' + messages[i].chatmessage + '</div>'
+    for(i=0;i<responseText.length;i++){
+      chat.innerHTML += '<div class="messages"> <p style="font-weight: bold;">'+ responseText[i].username +':</p> ' + responseText[i].chatmessage + '</div>'
     }
+    chat.scrollTop = chat.scrollHeight;
+    window.t = responseText[responseText.length-1].rowid;
 });
+
 }
 
 function httpPOST(){
   $.post("http://52.88.26.79:7000/",{
-    "username":"wiichog",
+    "username":document.getElementById("username").value,
     "chatmessage":document.getElementById('message').value
   })
   chat.innerHTML = "";
   document.getElementById('message').value="";
+  document.getElementById("username").value = "";
 }
