@@ -1,127 +1,96 @@
+@font-face {
+    font-family: Windsor;
+    src: url(./fonts/Windsor Regular.ttf);
+}
+@font-face {
+    font-family: FarnhamTextRegular;
+    src: url(./fonts/FarnhamTextRegular.ttf);
+}
+
 body {
-    font-family: 'Roboto', 'Sans Serif';
-    font-size: 16px;
+	color: #74718b;
     padding: 0;
     margin: 0;
 }
-
-header {
-    background-color: #03A9F4;
-    padding: 14px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
-
-h1, h2 {
-    font-weight: 300;
-}
-
-header > h1 {
-    font-weight: 300;
-    font-size: 24px;
-    margin: 0;
-    color: #FFFFFF;
-}
-
-h2 {
-    font-size: 24px;
-    margin: 24px 0;
-}
-
-h2 > .currency {
-    color: #0288D1;
-}
-
-.principal {
-    color: #0288D1;
-}
-
-.interest {
-    color: #EF6C00;
-}
-
-input[type=text] {
-    -webkit-appearance: none;
-    width: 150px;
-    height: 24px;
-    padding: 3px 8px;
+.skip{
+	font-family: 'Poppins', sans-serif;
+	color: #74718b;
+    letter-spacing: 2.002px;
     font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+}
+.skip:hover{ 
+    color: white;
+    cursor: pointer;
+}
+.MainScreen{
+	background: url(../images/descarga.svg);
+	background-size: cover;
+    background-position: 50%;
+    text-align: center;
+}
+.Title{
+	margin-bottom: 30px;
+	font-family: Windsor;
+    font-size: 123px;
+    line-height: .9;
+    text-rendering: optimizeLegibility;
+    color: #fff;
+}
+.Description{
+    color: #fff;
+    max-width: 80%;
+    margin: 0 auto;
+    font-size: 23px;
+    line-height: 1.5;
+    font-family: FarnhamTextRegular;
+}
+.StartReading{
+    font-family: Poppins;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2.002px;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 50px;
+    padding: 1em 2em;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 60px;
 }
 
-table {
-    border-collapse: collapse;
-    font-weight: 300;
+.StartReading:hover {
+    cursor: pointer;
 }
-
-th {
-    text-align: right;
-    font-weight: 400;
+.StartReading:before {
+    content: "";
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    background-color: #fff;
+    -webkit-transform-origin: 50%;
+    transform-origin: 50%;
+    transition-property: -webkit-transform;
+    transition-property: transform;
+    transition-property: transform,-webkit-transform;
+    transition-timing-function: ease-out;
 }
-
-td {
-    text-align: right;
-    padding: 0 .5rem;
+.Button{
+    font-family: Poppins;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: inherit;
+    letter-spacing: 2.002px;
+    color: white;
+    top:0;
+    position: fixed;
+    margin-top: 25px;
 }
-
-
-
-th,
-td {
-    border: solid 1px #EEEEEE !important;
-    padding: 1px 4px;
-}
-
-label {
-    display: inline-block;
-    width: 80px;
-    text-align: right;
-    margin-right: 4px;
-}
-
-.content {
-    padding: 20px;
-}
-
-.bar {
-    display: inline-block;
-    border: none;
-    height: 8px;
-}
-
-.bar.principal {
-    background-color: #0288D1;
-    margin-right:.5px;
-}
-
-.bar.interest {
-    background-color: #EF6C00;
-    margin-left:.5px;
-}
-
-.stretch {
-    width: 100%;
-    padding-left:0;
-    padding-right:0;
-}
-
-.flex {
-    display: -webkit-flex;
-    display: flex;
-}
-
-.currency::before {
-    content:"$";
-}
-
-.left {
-    text-align: left;
-}
-
-.form > div {
-    margin: 6px 0;
+.Button:hover{ 
+    color: #fec7c7;
+    cursor: pointer;
 }
