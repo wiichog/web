@@ -10,7 +10,6 @@ var txt = "Inspired by the many confessions  made by the wonderfully lost and co
 var speed = 80;
 var change = false;
 
-var number =0
 function rootReducer(state, action){
     switch(action.type){
         case 'FirstScreen':
@@ -28,24 +27,23 @@ function rootReducer(state, action){
     }
 }
 
-let store = createStore(rootReducer);
+var store = createStore(rootReducer);
 console.log(store);
-
+store.dispatch({type: 'FirstScreen'});
 class App extends React.Component {
   constructor(props) {
         super(props);
         store.subscribe(()=>{
-            number = store.getState().number;
+          this.setState({change:store.getState().change})
         });
-        this.state = { screen: '0' };
+        this.state = {change:false}
     }
     componentDidMount() {
-      store.dispatch({type: 'FirstScreen'});
       Line1()
     }
   render () {
     return(
-        <FirstScreen></FirstScreen>
+      !this.state.change?<FirstScreen></FirstScreen>:<SecondScreen></SecondScreen>
         );
   }
 }
@@ -72,7 +70,7 @@ class FirstScreen extends React.Component{
   render(){
     return(
         <div style={styles.firstScreen}>
-        <h3 className="skip" style={styles.skipIntro}>SKIP  INTRO</h3>
+        <h3 className="skip" style={styles.skipIntro} onClick={() =>  store.dispatch({type: 'SecondScreen'})}>SKIP  INTRO</h3>
         <div style={styles.firstText}>
         <div id="line1" style={styles.justifyText}></div>
         </div>

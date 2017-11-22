@@ -13,7 +13,7 @@ var path = require('path');
                  test: /\.js$/,
                  loader: 'babel-loader',
                  query: {
-                     presets: ['es2015', 'react']
+                     presets: ['es2015', 'react', 'stage-0']
                  }
              }
          ]
@@ -22,4 +22,4 @@ var path = require('path');
          colors: true
      },
      devtool: 'source-map'
- };s
+ };

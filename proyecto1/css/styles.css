@@ -4,7 +4,7 @@
 }
 @font-face {
     font-family: FarnhamTextRegular;
-    src: url(./fonts/FarnhamTextRegular.ttf);
+    src: url(../fonts/FarnhamTextRegular.ttf);
 }
 
 body {
