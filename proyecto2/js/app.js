@@ -25,13 +25,13 @@ class MyComponent extends React.Component {
         return (
                     <SwipeableViews>
                         <Project description={Information} title="Portafolio" link=""></Project>
-                        <Project description={description1} title="Titulo: Dibujo con css" link="https://codepen.io/wiichog/pen/weZqVo" linktitle="Visitalo Aqui!"></Project>
-                        <Project description={description2} title="Titulo: Memoria" link="https://codepen.io/wiichog/pen/yoyRgd" linktitle="Visitalo Aqui!"></Project>
-                        <Project description={description3} title="Titulo: chat" link="https://github.com/wiichog/web/tree/master/CHAT" linktitle="Visitalo Aqui!"></Project>
-                        <Project description={description4} title="Titulo: Laberinto" link="https://github.com/wiichog/web/tree/master/react-hello-world/node_modules/.bin/src/client/app" linktitle="Visitalo Aqui!"></Project>
-                        <Project description={description5} title="Titulo: Calculadora" link="https://github.com/wiichog/web/tree/master/calculadora" linktitle="Visitalo Aqui!"></Project>
-                        <Project title="Titulo: Proyecto 1"></Project>
-                        <Project description={description7} title="Titulo: Contador Redux" link="https://github.com/wiichog/web/tree/master/contador" linktitle="Visitalo Aqui!"></Project>
+                        <Project description={description1} imageName="images/mike.jpg" link="https://codepen.io/wiichog/pen/weZqVo" linktitle="Visitalo Aqui!"></Project>
+                        <Project description={description2} imageName="images/memoria.jpg" link="https://codepen.io/wiichog/pen/yoyRgd" linktitle="Visitalo Aqui!"></Project>
+                        <Project description={description3} imageName="images/chat.jpg" link="https://github.com/wiichog/web/tree/master/CHAT" linktitle="Visitalo Aqui!"></Project>
+                        <Project description={description4} imageName="images/laberinto.jpg" link="https://github.com/wiichog/web/tree/master/react-hello-world/node_modules/.bin/src/client/app" linktitle="Visitalo Aqui!"></Project>
+                        <Project description={description5} imageName="images/calculadora.jpg" link="https://github.com/wiichog/web/tree/master/calculadora" linktitle="Visitalo Aqui!"></Project>
+                        <Project imageName="images/proyecto1.jpg" title="Titulo: Proyecto 1"></Project>
+                        <Project description={description7} imageName="images/contadora.jpg" link="https://github.com/wiichog/web/tree/master/contador" linktitle="Visitalo Aqui!"></Project>
                   </SwipeableViews>
             )
     }}
@@ -40,14 +40,23 @@ class Project extends React.Component{
     render(){
         return (
             <div style={styles.wall}>
-            <div className = "title">{this.props.title}</div>
-            <div className="description">{this.props.description}<a href={this.props.link}>{this.props.linktitle}</a></div>
+            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                <div class="flipper">
+                    <div class="front" style={{zIndex:500,backgroundImage: 'url(' + this.props.imageName + ')',backgroundSize: 'cover',}}>
+                    </div>
+                    <div class="back" >
+                    {this.props.description}
+                    <a href={this.props.link}>{this.props.linktitle}</a>
+                    </div>
+                </div>
+            </div>
             </div>
             )
     }
 }
 
 let imgUrl = 'images/wall.jpg'
+let mike = 'images/mike.jpg'
 let styles = {
     wall:{
         backgroundImage: 'url(' + imgUrl + ')',
@@ -55,6 +64,7 @@ let styles = {
         overflow: 'hidden',
         height : screen.availHeight+1070,
         width: screen.availWidth+1000,
+        zIndex:900,
     },
 }
 
